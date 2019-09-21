@@ -16,7 +16,8 @@
         data(){
             return {
                 logs: "",
-                content: ""
+                content: "",
+                address: "https://go-chat-zeno0119.herokuapp.com"
             }
         },
         methods: {
@@ -25,7 +26,7 @@
                 params.append("timestamp", new Date().toString())
                 params.append("content", this.content)
 
-                axios.post("http://localhost:8080/api/post", params)
+                axios.post(this.address + "/api/post", params)
                     .then(res => {
                         this.logs = res.data
                         console.log(res.data)
@@ -33,7 +34,7 @@
             },
 
             get(){
-                axios.get("http://localhost:8080/api/get")
+                axios.get(this.address + "/api/get")
                     .then(res => {
                         this.logs = res.data
                         console.log(res)

@@ -10,14 +10,15 @@
   export default {
     data() {
       return {
-        user: ""
+        user: "",
+        address: "https://go-chat-zeno0119.herokuapp.com"
       }
     },
     methods: {
       login: function(){
         let params = new URLSearchParams()
         params.append("user", this.user)
-        axios.post("http://localhost:8080/api/login", params)
+        axios.post(this.address + "/api/login", params)
                 .then(() => {
                   this.$router.push('/chat/')
                 })
