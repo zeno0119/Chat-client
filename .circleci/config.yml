@@ -28,7 +28,7 @@ jobs:
 
       - run: npm update npm
 
-      - run: npm install
+      - run: yarn install
 
       - save_cache:
           paths:
@@ -36,4 +36,4 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: npx nuxt generate
+      - run: yarn nuxt generate
